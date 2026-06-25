@@ -16,9 +16,9 @@ class ApiService{
 
   Future<dynamic> post(String url, Map<String,dynamic>body)async{
     final response= await http.post(Uri.parse(url),body: jsonEncode(body), headers: {"Content-Type":"application/json"});
-  if(response.statusCode == 200){
+  if(response.statusCode >= 200 && response.statusCode < 300){
     return jsonDecode(response.body);
   }
-  throw Exception("Failed");
+  throw Exception("Server returned ${response.statusCode}: ${response.body}");
   }
 }

@@ -15,7 +15,7 @@ class ProductView extends GetView<ProductController> {
         centerTitle: true,
       ),
       body: Obx(() {
-        if(controller.isLoading.value = true){
+        if(controller.isLoading.value){
           return const Center(child: CircularProgressIndicator(),);
         }
 

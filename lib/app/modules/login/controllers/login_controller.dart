@@ -22,8 +22,7 @@ class LoginController extends GetxController {
         print("Login Response: $response");
       Get.offAllNamed(Routes.PRODUCT);
     } catch (e) {
-      Get.snackbar("Error", "Login Failed");
-      
+      Get.snackbar("Error", "Login Failed: ${e.toString()}");
     }finally{
       isLoading.value = false;
     }
